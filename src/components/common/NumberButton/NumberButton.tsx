@@ -1,13 +1,13 @@
 import styles from './style.module.scss';
 
 type Props = {
-  number: number;
+  char: string;
   diameter?: number;
   fontSize?: number;
-  onClick?: (n: number) => void;
+  onClick?: (c: string) => void;
 };
 
-export const NumberButton = ({ number, diameter = 80, fontSize = 32, onClick }: Props) => {
+export const NumberButton = ({ char, diameter = 80, fontSize = 32, onClick }: Props) => {
   return (
     <button
       className={styles.number_button}
@@ -18,11 +18,11 @@ export const NumberButton = ({ number, diameter = 80, fontSize = 32, onClick }: 
       }}
       onClick={() => {
         if (onClick) {
-          onClick(number);
+          onClick(char);
         }
       }}
     >
-      {number.toString()}
+      {char}
     </button>
   );
 };

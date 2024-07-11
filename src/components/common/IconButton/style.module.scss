@@ -14,6 +14,9 @@
 
   &.green {
     background-color: var.$green;
+    &:active {
+      background-color: var.$darkGreen;
+    }
     .icon {
       fill: var.$white;
     }
