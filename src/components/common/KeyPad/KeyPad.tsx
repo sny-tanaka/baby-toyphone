@@ -1,8 +1,8 @@
 import styles from './style.module.scss';
 
+import { CrossButton } from '@/components/common/CrossButton/CrossButton';
 import { IconButton } from '@/components/common/IconButton/IconButton';
 import { NumberButton } from '@/components/common/NumberButton/NumberButton';
-import { CrossButton } from '@/components/common/CrossButton/CrossButton';
 
 const BUTTONS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '＊', '0', '＃'];
 
