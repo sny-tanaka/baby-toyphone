@@ -1,12 +1,12 @@
 'use strict';
-(self.webpackChunkapp = self.webpackChunkapp || []).push([
+(self.webpackChunkbaby_toyphone = self.webpackChunkbaby_toyphone || []).push([
   [27],
   {
     27: (e, t, n) => {
       n.r(t),
         n.d(t, {
-          getCLS: () => y,
-          getFCP: () => g,
+          getCLS: () => T,
+          getFCP: () => h,
           getFID: () => C,
           getLCP: () => P,
           getTTFB: () => D,
@@ -91,7 +91,7 @@
             }
           );
         },
-        g = function (e, t) {
+        h = function (e, t) {
           var n,
             i = l(),
             r = u('FCP'),
@@ -119,17 +119,17 @@
                 });
             }));
         },
-        h = !1,
-        T = -1,
-        y = function (e, t) {
-          h ||
-            (g(function (e) {
-              T = e.value;
+        g = !1,
+        y = -1,
+        T = function (e, t) {
+          g ||
+            (h(function (e) {
+              y = e.value;
             }),
-            (h = !0));
+            (g = !0));
           var n,
             i = function (t) {
-              T > -1 && e(t);
+              y > -1 && e(t);
             },
             r = u('CLS', 0),
             a = 0,
@@ -151,7 +151,7 @@
               p.takeRecords().map(v), n(!0);
             }),
             s(function () {
-              (a = 0), (T = -1), (r = u('CLS', 0)), (n = m(i, r, t));
+              (a = 0), (y = -1), (r = u('CLS', 0)), (n = m(i, r, t));
             }));
         },
         E = { passive: !0, capture: !0 },
