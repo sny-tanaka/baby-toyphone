@@ -1,14 +1,12 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { TextBox } from './TextBox';
+import { KeyPad } from './KeyPad';
 
-type T = typeof TextBox;
+type T = typeof KeyPad;
 
 export default {
-  component: TextBox,
-  args: {
-    defaultValue: 'デフォルト値',
-  },
+  component: KeyPad,
+  args: {},
 } satisfies Meta<T>;
 
 export const Default: StoryObj<T> = {};

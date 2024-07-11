@@ -9,7 +9,7 @@ import reportWebVitals from '@/reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <RecoilRoot>
-    <BrowserRouter>
+    <BrowserRouter basename="/baby-toyphone">
       <App />
     </BrowserRouter>
   </RecoilRoot>

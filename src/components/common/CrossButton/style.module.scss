@@ -1,0 +1,15 @@
+@use '@/variables' as var;
+
+.cross_button {
+  background-color: var.$gray;
+  color: var.$black;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  font-size: 24px;
+  font-weight: bold;
+  &:active {
+    background-color: var.$darkGray;
+  }
+}

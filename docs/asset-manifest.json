@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/baby-toyphone/static/css/main.8ade908f.css",
-    "main.js": "/baby-toyphone/static/js/main.2d50001d.js",
-    "static/js/27.57bd240e.chunk.js": "/baby-toyphone/static/js/27.57bd240e.chunk.js",
+    "main.js": "/baby-toyphone/static/js/main.b4d7a7f4.js",
+    "static/js/27.b613a361.chunk.js": "/baby-toyphone/static/js/27.b613a361.chunk.js",
     "index.html": "/baby-toyphone/index.html"
   },
   "entrypoints": [
     "static/css/main.8ade908f.css",
-    "static/js/main.2d50001d.js"
+    "static/js/main.b4d7a7f4.js"
   ]
 }

@@ -1,0 +1,29 @@
+@use '@/variables' as var;
+
+.icon_button {
+  background-color: var.$gray;
+  color: var.$black;
+  border-radius: 50%;
+  border: none;
+  padding: 16px;
+  font-weight: bold;
+  transition: all 0.5s;
+  &:active {
+    background-color: var.$darkGray;
+  }
+
+  &.green {
+    background-color: var.$green;
+    &:active {
+      background-color: var.$darkGreen;
+    }
+    .icon {
+      fill: var.$white;
+    }
+  }
+
+  .icon {
+    width: 100%!important;
+    height: 100%!important;
+  }
+}

@@ -1,13 +1,13 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { CustomNavLink } from './CustomNavLink';
+import { NumberButton } from './NumberButton';
 
-type T = typeof CustomNavLink;
+type T = typeof NumberButton;
 
 export default {
-  component: CustomNavLink,
+  component: NumberButton,
   args: {
-    to: '/',
+    char: '1',
   },
 } satisfies Meta<T>;
 

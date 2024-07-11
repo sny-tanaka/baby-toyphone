@@ -1,0 +1,13 @@
+@use '@/variables' as var;
+
+.number_button {
+  background-color: var.$gray;
+  color: var.$black;
+  border-radius: 50%;
+  border: none;
+  font-weight: bold;
+  transition: all 0.5s;
+  &:active {
+    background-color: var.$darkGray;
+  }
+}

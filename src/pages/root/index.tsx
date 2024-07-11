@@ -1,7 +1,9 @@
+import { Telephone } from '@/components/telephone/Telephone/Telephone';
+
 export const Page = () => {
-    return (
-        <div>
-            <h1>Root</h1>
-        </div>
-    )
-}
+  return (
+    <div>
+      <Telephone />
+    </div>
+  );
+};

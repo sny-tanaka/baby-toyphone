@@ -1,14 +1,12 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { SubmitButton } from './SubmitButton';
+import { CrossButton } from './CrossButton';
 
-type T = typeof SubmitButton;
+type T = typeof CrossButton;
 
 export default {
-  component: SubmitButton,
-  args: {
-    label: '送信',
-  },
+  component: CrossButton,
+  args: {},
 } satisfies Meta<T>;
 
 export const Default: StoryObj<T> = {};
