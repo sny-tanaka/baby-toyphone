@@ -1,0 +1,44 @@
+name: Create Release PR
+on:
+  workflow_call:
+    inputs:
+      FROM_BRANCH:
+        required: true
+        type: string
+      TO_BRANCH:
+        required: true
+        type: string
+    secrets:
+      RELAY_APP_ID:
+        required: true
+      RELAY_PRIVATE_KEY:
+        required: true
+
+jobs:
+  git-pr-release:
+    name: git-pr-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Generate token
+        id: generate_token
+        uses: getsentry/action-github-app-token@v2
+        with:
+          app_id: ${{ secrets.RELAY_APP_ID }}
+          private_key: ${{ secrets.RELAY_PRIVATE_KEY }}
+
+      - name: git-pr-release to production
+        uses: bakunyo/git-pr-release-action@master
+        with:
+          args: "--squashed"
+        env:
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+          GIT_PR_RELEASE_BRANCH_STAGING: ${{ inputs.FROM_BRANCH }}
+          GIT_PR_RELEASE_TEMPLATE: .github/.git-pr-release-template
+          GIT_PR_RELEASE_BRANCH_PRODUCTION: ${{ inputs.TO_BRANCH }}
+          GIT_PR_RELEASE_LABELS: release
+          TZ: Asia/Tokyo

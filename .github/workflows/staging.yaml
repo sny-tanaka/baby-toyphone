@@ -1,0 +1,41 @@
+name: Staging Check or Deploy
+on:
+  push:
+    branches:
+      - 'staging'
+  pull_request:
+    branches:
+      - 'staging'
+jobs:
+  dryrun:
+    uses: ./.github/workflows/deploy.yaml
+    if: ${{ github.event_name == 'pull_request' }}
+    with:
+      ENV_NAME: stg
+      IS_DRY_RUN: true
+    secrets:
+      RELAY_AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_STG }}
+      RELAY_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_STG }}
+      RELAY_S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME_STG }}
+      RELAY_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      RELAY_SLACK_WEBHOOK_URL: ${{ secrets.ORG_SLACK_WEBHOOK_URL }}
+  deploy:
+    uses: ./.github/workflows/deploy.yaml
+    if: ${{ github.event_name == 'push' }}
+    with:
+      ENV_NAME: stg
+    secrets:
+      RELAY_AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_STG }}
+      RELAY_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_STG }}
+      RELAY_S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME_STG }}
+      RELAY_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      RELAY_SLACK_WEBHOOK_URL: ${{ secrets.ORG_SLACK_WEBHOOK_URL }}
+  release:
+    uses: ./.github/workflows/git-pr-release.yaml
+    if: ${{ github.event_name == 'push' }}
+    with:
+      FROM_BRANCH: staging
+      TO_BRANCH: production
+    secrets:
+      RELAY_APP_ID: ${{ secrets.CI_SYSTEM_APP_ID }}
+      RELAY_PRIVATE_KEY: ${{ secrets.CI_SYSTEM_PRIVATE_KEY }}

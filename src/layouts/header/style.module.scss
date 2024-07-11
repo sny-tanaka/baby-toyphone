@@ -1,0 +1,16 @@
+@use '@/variables' as var;
+
+.header {
+  color: var.$white;
+  background-color: var.$black;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.text {
+  font-size: 40px;
+  font-weight: bold;
+}

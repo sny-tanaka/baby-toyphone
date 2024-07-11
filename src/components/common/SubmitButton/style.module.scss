@@ -1,0 +1,6 @@
+@use '@/variables' as var;
+
+.text_box {
+  background-color: var.$gray;
+  color: var.$white;
+}

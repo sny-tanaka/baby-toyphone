@@ -1,0 +1,32 @@
+name: Production Check or Deploy
+on:
+  push:
+    branches:
+      - 'production'
+  pull_request:
+    branches:
+      - 'production'
+jobs:
+  dryrun:
+    uses: ./.github/workflows/deploy.yaml
+    if: ${{ github.event_name == 'pull_request' }}
+    with:
+      ENV_NAME: prd
+      IS_DRY_RUN: true
+    secrets:
+      RELAY_AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_PRD }}
+      RELAY_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_PRD }}
+      RELAY_S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME_PRD }}
+      RELAY_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      RELAY_SLACK_WEBHOOK_URL: ${{ secrets.ORG_SLACK_WEBHOOK_URL }}
+  deploy:
+    uses: ./.github/workflows/deploy.yaml
+    if: ${{ github.event_name == 'push' }}
+    with:
+      ENV_NAME: prd
+    secrets:
+      RELAY_AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_PRD }}
+      RELAY_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_PRD }}
+      RELAY_S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME_PRD }}
+      RELAY_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      RELAY_SLACK_WEBHOOK_URL: ${{ secrets.ORG_SLACK_WEBHOOK_URL }}
