@@ -1,4 +1,4 @@
-/*! For license information please see main.f50e4f53.js.LICENSE.txt */
+/*! For license information please see main.2d50001d.js.LICENSE.txt */
 (() => {
   'use strict';
   var e = {
@@ -8454,7 +8454,7 @@
         Object.defineProperty(e, Symbol.toStringTag, { value: 'Module' }),
         Object.defineProperty(e, '__esModule', { value: !0 });
     }),
-    (n.p = '/'),
+    (n.p = '/baby-toyphone/'),
     (() => {
       var e = { 179: 0 };
       n.f.j = (t, r) => {
@@ -9847,7 +9847,7 @@
               ? void 0
               : {
                   NODE_ENV: 'production',
-                  PUBLIC_URL: '',
+                  PUBLIC_URL: '/baby-toyphone',
                   WDS_SOCKET_HOST: void 0,
                   WDS_SOCKET_PATH: void 0,
                   WDS_SOCKET_PORT: void 0,
@@ -9859,7 +9859,7 @@
               null ===
                 (n = {
                   NODE_ENV: 'production',
-                  PUBLIC_URL: '',
+                  PUBLIC_URL: '/baby-toyphone',
                   WDS_SOCKET_HOST: void 0,
                   WDS_SOCKET_PATH: void 0,
                   WDS_SOCKET_PORT: void 0,
@@ -9885,7 +9885,7 @@
               null ===
                 (n = {
                   NODE_ENV: 'production',
-                  PUBLIC_URL: '',
+                  PUBLIC_URL: '/baby-toyphone',
                   WDS_SOCKET_HOST: void 0,
                   WDS_SOCKET_PATH: void 0,
                   WDS_SOCKET_PORT: void 0,

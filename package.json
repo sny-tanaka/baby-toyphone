@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "tsc --project tsconfig.local.json && DISABLE_ESLINT_PLUGIN=true react-app-rewired start",
-    "build": "GENERATE_SOURCEMAP=false react-app-rewired build && mv build docs",
+    "build": "GENERATE_SOURCEMAP=false react-app-rewired build && rm -r docs && mv build/ docs/",
     "test": "react-app-rewired test --coverage --collectCoverageFrom=src/logics/** --no-cache --watchAll=false",
     "eject": "react-app-rewired eject",
     "lint": "eslint .",
