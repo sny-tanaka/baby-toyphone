@@ -3,9 +3,4 @@
 .main {
   font-family: 'Noto Sans', sans-serif;
   color: var.$black;
-  // スマホのみの設定
-  @include var.media(sp) {
-    font-size: 14px;
-    color: var.$red;
-  }
 }
