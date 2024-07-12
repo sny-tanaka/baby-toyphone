@@ -10,32 +10,36 @@ type Props = {
   backgroundColor: 'green' | 'red';
   diameter?: number;
   onClick?: () => void;
+  disabled?: boolean;
 };
 
-export const IconButton = React.memo(({ icon, backgroundColor, diameter = 80, onClick }: Props) => {
-  const Icon = useMemo(() => {
-    switch (icon) {
-      case 'tel':
-        return TelIcon;
-      default:
-        return TelIcon;
-    }
-  }, [icon]);
+export const IconButton = React.memo(
+  ({ icon, backgroundColor, diameter = 80, onClick, disabled }: Props) => {
+    const Icon = useMemo(() => {
+      switch (icon) {
+        case 'tel':
+          return TelIcon;
+        default:
+          return TelIcon;
+      }
+    }, [icon]);
 
-  return (
-    <button
-      className={`${styles.icon_button} ${styles[backgroundColor]}`}
-      style={{
-        width: diameter,
-        height: diameter,
-      }}
-      onClick={() => {
-        if (onClick) {
-          onClick();
-        }
-      }}
-    >
-      <Icon className={styles.icon} />
-    </button>
-  );
-});
+    return (
+      <button
+        className={`${styles.icon_button} ${styles[backgroundColor]}`}
+        style={{
+          width: diameter,
+          height: diameter,
+        }}
+        onClick={() => {
+          if (onClick) {
+            onClick();
+          }
+        }}
+        disabled={disabled}
+      >
+        <Icon className={styles.icon} />
+      </button>
+    );
+  }
+);

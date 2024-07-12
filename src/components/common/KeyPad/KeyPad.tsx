@@ -11,9 +11,10 @@ type Props = {
   onPushButton: (char: string) => void;
   onCall: () => void;
   onBackspace: () => void;
+  callDisabled?: boolean;
 };
 
-export const KeyPad = React.memo(({ onPushButton, onCall, onBackspace }: Props) => {
+export const KeyPad = React.memo(({ onPushButton, onCall, onBackspace, callDisabled }: Props) => {
   const numberSounds = NumberSounds();
 
   return (
@@ -36,6 +37,7 @@ export const KeyPad = React.memo(({ onPushButton, onCall, onBackspace }: Props) 
           icon="tel"
           backgroundColor="green"
           onClick={onCall}
+          disabled={callDisabled}
         />
       </div>
       <div className={styles.button}>

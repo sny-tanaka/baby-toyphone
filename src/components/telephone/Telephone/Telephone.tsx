@@ -57,6 +57,7 @@ export const Telephone = React.memo(() => {
         onPushButton={(c) => setInputNumber((prev) => prev + c)}
         onCall={onCall}
         onBackspace={() => setInputNumber((prev) => prev.slice(0, -1))}
+        callDisabled={inputNumber.length === 0}
       />
       <CallModal
         isOpen={isCalling}
