@@ -1,9 +1,11 @@
+import React from 'react';
+
 import styles from './style.module.scss';
 
 type Props = {};
 
-export const {{pascalCase name}} = ({}: Props) => {
+export const {{pascalCase name}} = React.memo(({}: Props) => {
   return (
-    <div></div>
+    <div className={styles. {{snakeCase name}} }></div>
   );
-};
+});

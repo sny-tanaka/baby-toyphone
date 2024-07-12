@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import React from 'react';
 
 import styles from './style.module.scss';
 
@@ -6,12 +7,12 @@ import { ReactComponent as TelIcon } from '@/assets/images/icons/tel.svg';
 
 type Props = {
   icon: 'tel';
-  backgroundColor: 'green';
+  backgroundColor: 'green' | 'red';
   diameter?: number;
   onClick?: () => void;
 };
 
-export const IconButton = ({ icon, backgroundColor, diameter = 80, onClick }: Props) => {
+export const IconButton = React.memo(({ icon, backgroundColor, diameter = 80, onClick }: Props) => {
   const Icon = useMemo(() => {
     switch (icon) {
       case 'tel':
@@ -37,4 +38,4 @@ export const IconButton = ({ icon, backgroundColor, diameter = 80, onClick }: Pr
       <Icon className={styles.icon} />
     </button>
   );
-};
+});
