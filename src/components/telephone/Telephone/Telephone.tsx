@@ -6,24 +6,30 @@ import useSound from 'use-sound';
 import styles from './style.module.scss';
 
 import SoundRingback from '@/assets/sounds/telephone/ringback_tone.mp3';
-import { BUTTONS, KeyPad } from '@/components/common/KeyPad/KeyPad';
+import { KeyPad } from '@/components/common/KeyPad/KeyPad';
 import { CallModal } from '@/components/telephone/CallModal/CallModal';
 import { sleep } from '@/logics/sleep/sleep';
+import { NumberSounds } from '@/hooks/NumberSounds';
 
 export const Telephone = React.memo(() => {
+  const numberSounds = NumberSounds();
+
   const [inputNumber, setInputNumber] = useState('');
   const [isCalling, setIsCalling] = useState(false);
   const [showNumber, setShowNumber] = useState('');
 
   const [ringPlay, { stop: ringStop }] = useSound(SoundRingback);
 
-  const addShowNumber = useCallback((c: string) => {
-    setShowNumber((prev) => prev + c);
-    const sound = BUTTONS.find((b) => b.char === c)?.sound;
-    if (sound) {
-      new Audio(sound).play();
-    }
-  }, []);
+  const addShowNumber = useCallback(
+    (c: string) => {
+      setShowNumber((prev) => prev + c);
+      const sound = numberSounds.find((b) => b.char === c);
+      if (sound) {
+        sound.play();
+      }
+    },
+    [numberSounds]
+  );
 
   const onCall = useCallback(async () => {
     setIsCalling(true);
@@ -37,6 +43,13 @@ export const Telephone = React.memo(() => {
     ringPlay();
   }, [inputNumber]);
 
+  const onCancel = useCallback(() => {
+    setInputNumber('');
+    ringStop();
+    setIsCalling(false);
+    setShowNumber('');
+  }, [ringStop]);
+
   return (
     <div className={styles.telephone}>
       <div className={styles.input}>{inputNumber}</div>
@@ -47,10 +60,8 @@ export const Telephone = React.memo(() => {
       />
       <CallModal
         isOpen={isCalling}
-        setIsOpen={setIsCalling}
-        onCancel={() => ringStop()}
+        onCancel={onCancel}
         showNumber={showNumber}
-        setShowNumber={setShowNumber}
       />
     </div>
   );
