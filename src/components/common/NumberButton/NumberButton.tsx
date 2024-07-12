@@ -5,9 +5,11 @@ type Props = {
   diameter?: number;
   fontSize?: number;
   onClick?: (c: string) => void;
+  sound?: string;
 };
 
-export const NumberButton = ({ char, diameter = 80, fontSize = 32, onClick }: Props) => {
+export const NumberButton = ({ char, diameter = 80, fontSize = 32, onClick, sound }: Props) => {
+  const audio = new Audio(sound);
   return (
     <button
       className={styles.number_button}
@@ -18,6 +20,7 @@ export const NumberButton = ({ char, diameter = 80, fontSize = 32, onClick }: Pr
       }}
       onClick={() => {
         if (onClick) {
+          audio.play();
           onClick(char);
         }
       }}

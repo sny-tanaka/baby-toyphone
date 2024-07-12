@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import styles from './style.module.scss';
 
-import { ReactComponent as TelIcon } from '@/images/icons/tel.svg';
+import { ReactComponent as TelIcon } from '@/assets/images/icons/tel.svg';
 
 type Props = {
   icon: 'tel';

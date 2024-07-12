@@ -1,6 +1,9 @@
 @use '@/variables' as var;
 
 .number_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var.$gray;
   color: var.$black;
   border-radius: 50%;

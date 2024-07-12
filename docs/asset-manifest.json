@@ -1,13 +1,25 @@
 {
   "files": {
-    "main.css": "/baby-toyphone/static/css/main.a036cdf1.css",
-    "main.js": "/baby-toyphone/static/js/main.38c7e3ac.js",
+    "main.css": "/baby-toyphone/static/css/main.fb35145d.css",
+    "main.js": "/baby-toyphone/static/js/main.173d4b07.js",
     "static/js/27.b613a361.chunk.js": "/baby-toyphone/static/js/27.b613a361.chunk.js",
+    "static/media/1.mp3": "/baby-toyphone/static/media/1.0cca3a767db87583d049.mp3",
+    "static/media/0.mp3": "/baby-toyphone/static/media/0.80ef7021810a7afc2319.mp3",
+    "static/media/2.mp3": "/baby-toyphone/static/media/2.2c936ac64c1724122460.mp3",
+    "static/media/3.mp3": "/baby-toyphone/static/media/3.85df786f565b70b29c04.mp3",
+    "static/media/4.mp3": "/baby-toyphone/static/media/4.ddcce5b0057fd9aa366a.mp3",
+    "static/media/5.mp3": "/baby-toyphone/static/media/5.b1e1e2bcc7acca815039.mp3",
+    "static/media/6.mp3": "/baby-toyphone/static/media/6.7d94f17e3963948a0c26.mp3",
+    "static/media/7.mp3": "/baby-toyphone/static/media/7.9b22b23fc1d1a2ffd182.mp3",
+    "static/media/8.mp3": "/baby-toyphone/static/media/8.1eecba34990c95f94b7d.mp3",
+    "static/media/9.mp3": "/baby-toyphone/static/media/9.8717f0d4f9bf751a8599.mp3",
+    "static/media/asterisk.mp3": "/baby-toyphone/static/media/asterisk.9e03442fd26b509bfb46.mp3",
+    "static/media/sharp.mp3": "/baby-toyphone/static/media/sharp.438a410b52695ad9117e.mp3",
     "static/media/tel.svg": "/baby-toyphone/static/media/tel.0086f6d127c1f52b3b8882e856a259c2.svg",
     "index.html": "/baby-toyphone/index.html"
   },
   "entrypoints": [
-    "static/css/main.a036cdf1.css",
-    "static/js/main.38c7e3ac.js"
+    "static/css/main.fb35145d.css",
+    "static/js/main.173d4b07.js"
   ]
 }
