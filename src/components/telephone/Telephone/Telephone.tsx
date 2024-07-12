@@ -8,8 +8,8 @@ import styles from './style.module.scss';
 import SoundRingback from '@/assets/sounds/telephone/ringback_tone.mp3';
 import { KeyPad } from '@/components/common/KeyPad/KeyPad';
 import { CallModal } from '@/components/telephone/CallModal/CallModal';
-import { sleep } from '@/logics/sleep/sleep';
 import { NumberSounds } from '@/hooks/NumberSounds';
+import { sleep } from '@/logics/sleep/sleep';
 
 export const Telephone = React.memo(() => {
   const numberSounds = NumberSounds();

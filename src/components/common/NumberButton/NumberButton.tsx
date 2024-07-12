@@ -1,7 +1,8 @@
 import React from 'react';
 
-import styles from './style.module.scss';
 import { PlayFunction } from 'use-sound/dist/types';
+
+import styles from './style.module.scss';
 
 type Props = {
   char: string;
