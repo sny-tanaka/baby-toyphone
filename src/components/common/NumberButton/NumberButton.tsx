@@ -1,23 +1,19 @@
 import React from 'react';
 
-import useSound from 'use-sound';
+import { PlayFunction } from 'use-sound/dist/types';
 
 import styles from './style.module.scss';
 
 type Props = {
   char: string;
+  soundPlay: PlayFunction;
   diameter?: number;
   fontSize?: number;
   onClick?: (c: string) => void;
-  sound: string;
 };
 
 export const NumberButton = React.memo(
-  ({ char, diameter = 80, fontSize = 32, onClick, sound }: Props) => {
-    const [play] = useSound(sound, {
-      interrupt: true,
-    });
-
+  ({ char, soundPlay, diameter = 80, fontSize = 32, onClick }: Props) => {
     return (
       <button
         className={styles.number_button}
@@ -28,7 +24,7 @@ export const NumberButton = React.memo(
         }}
         onClick={() => {
           if (onClick) {
-            play();
+            soundPlay();
             onClick(char);
           }
         }}
