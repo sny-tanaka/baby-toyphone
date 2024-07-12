@@ -1,0 +1,14 @@
+@use '@/variables' as var;
+
+.modal {
+  background-color: #00000080;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

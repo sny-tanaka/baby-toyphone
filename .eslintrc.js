@@ -34,6 +34,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'react', 'import', 'unused-imports', 'no-relative-import-paths'],
   rules: {
     '@typescript-eslint/no-unused-vars': 'off',
+    'react/display-name': 'off',
     'unused-imports/no-unused-imports': 'warn',
     'react/react-in-jsx-scope': 'off',
     'import/order': [

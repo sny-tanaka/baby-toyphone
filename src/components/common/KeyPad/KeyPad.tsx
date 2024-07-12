@@ -1,3 +1,5 @@
+import React from 'react';
+
 import styles from './style.module.scss';
 
 import Sound0 from '@/assets/sounds/telephone/0.mp3';
@@ -16,7 +18,7 @@ import { CrossButton } from '@/components/common/CrossButton/CrossButton';
 import { IconButton } from '@/components/common/IconButton/IconButton';
 import { NumberButton } from '@/components/common/NumberButton/NumberButton';
 
-const BUTTONS = [
+export const BUTTONS = [
   { char: '1', sound: Sound1 },
   { char: '2', sound: Sound2 },
   { char: '3', sound: Sound3 },
@@ -37,7 +39,7 @@ type Props = {
   onBackspace: () => void;
 };
 
-export const KeyPad = ({ onPushButton, onCall, onBackspace }: Props) => {
+export const KeyPad = React.memo(({ onPushButton, onCall, onBackspace }: Props) => {
   return (
     <div className={styles.key_pad}>
       {BUTTONS.map(({ char, sound }) => (
@@ -65,4 +67,4 @@ export const KeyPad = ({ onPushButton, onCall, onBackspace }: Props) => {
       </div>
     </div>
   );
-};
+});

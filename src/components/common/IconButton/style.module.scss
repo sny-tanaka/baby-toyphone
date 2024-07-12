@@ -25,6 +25,16 @@
     }
   }
 
+  &.red {
+    background-color: var.$red;
+    &:active {
+      background-color: var.$darkRed;
+    }
+    .icon {
+      fill: var.$white;
+    }
+  }
+
   .icon {
     width: 100%!important;
     height: 100%!important;

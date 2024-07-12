@@ -1,3 +1,5 @@
+import React from 'react';
+
 import styles from './style.module.scss';
 
 type Props = {
@@ -7,18 +9,20 @@ type Props = {
   onClick?: () => void;
 };
 
-export const CrossButton = ({ fontSize = '24px', width = 24, height = 24, onClick }: Props) => {
-  return (
-    <button
-      className={styles.cross_button}
-      style={{
-        fontSize: fontSize,
-        width: width,
-        height: height,
-      }}
-      onClick={onClick}
-    >
-      ✕
-    </button>
-  );
-};
+export const CrossButton = React.memo(
+  ({ fontSize = '24px', width = 24, height = 24, onClick }: Props) => {
+    return (
+      <button
+        className={styles.cross_button}
+        style={{
+          fontSize: fontSize,
+          width: width,
+          height: height,
+        }}
+        onClick={onClick}
+      >
+        ✕
+      </button>
+    );
+  }
+);
