@@ -6,6 +6,7 @@ import useSound from 'use-sound';
 import styles from './style.module.scss';
 
 import SoundRingback from '@/assets/sounds/telephone/ringback_tone.mp3';
+import SoundShutdown from '@/assets/sounds/telephone/shutdown.mp3';
 import { KeyPad } from '@/components/common/KeyPad/KeyPad';
 import { CallModal } from '@/components/telephone/CallModal/CallModal';
 import { NumberSounds } from '@/hooks/NumberSounds';
@@ -19,6 +20,7 @@ export const Telephone = React.memo(() => {
   const [showNumber, setShowNumber] = useState('');
 
   const [ringPlay, { stop: ringStop }] = useSound(SoundRingback);
+  const [shutdownPlay, { stop: shutdownStop }] = useSound(SoundShutdown);
 
   const addShowNumber = useCallback(
     (c: string) => {
@@ -31,6 +33,14 @@ export const Telephone = React.memo(() => {
     [numberSounds]
   );
 
+  const onCancel = useCallback(() => {
+    setInputNumber('');
+    ringStop();
+    shutdownStop();
+    setIsCalling(false);
+    setShowNumber('');
+  }, [ringStop, shutdownStop]);
+
   const onCall = useCallback(async () => {
     setIsCalling(true);
     // 表示番号を徐々に増やすアニメーションを再生
@@ -41,14 +51,15 @@ export const Telephone = React.memo(() => {
     }
     // 電話をかける音を再生
     ringPlay();
-  }, [inputNumber]);
-
-  const onCancel = useCallback(() => {
-    setInputNumber('');
-    ringStop();
-    setIsCalling(false);
-    setShowNumber('');
-  }, [ringStop]);
+    // 再生中の待機
+    await sleep(9960);
+    // 電話を切る音を再生
+    shutdownPlay();
+    // 再生中の待機
+    await sleep(3790);
+    // 通話を切る処理
+    onCancel();
+  }, [inputNumber, onCancel]);
 
   return (
     <div className={styles.telephone}>
