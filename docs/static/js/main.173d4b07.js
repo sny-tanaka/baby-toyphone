@@ -1,4 +1,4 @@
-/*! For license information please see main.38c7e3ac.js.LICENSE.txt */
+/*! For license information please see main.173d4b07.js.LICENSE.txt */
 (() => {
   'use strict';
   var e = {
@@ -13670,20 +13670,37 @@
         _u = 'style_input__P4g0x',
         ku = 'style_key_pad__kvGl-',
         Eu = 'style_button__gyIOf',
-        Tu = 'style_cross_button__2OCca',
-        Ru = (e) => {
-          let { onClick: t } = e;
-          return (0, gu.jsx)('button', { className: Tu, onClick: t, children: '\u2715' });
+        Tu = n.p + 'static/media/0.80ef7021810a7afc2319.mp3',
+        Ru = n.p + 'static/media/1.0cca3a767db87583d049.mp3',
+        Cu = n.p + 'static/media/2.2c936ac64c1724122460.mp3',
+        xu = n.p + 'static/media/3.85df786f565b70b29c04.mp3',
+        Nu = n.p + 'static/media/4.ddcce5b0057fd9aa366a.mp3',
+        Lu = n.p + 'static/media/5.b1e1e2bcc7acca815039.mp3',
+        Au = n.p + 'static/media/6.7d94f17e3963948a0c26.mp3',
+        Pu = n.p + 'static/media/7.9b22b23fc1d1a2ffd182.mp3',
+        Mu = n.p + 'static/media/8.1eecba34990c95f94b7d.mp3',
+        Ou = n.p + 'static/media/9.8717f0d4f9bf751a8599.mp3',
+        zu = n.p + 'static/media/asterisk.9e03442fd26b509bfb46.mp3',
+        Du = n.p + 'static/media/sharp.438a410b52695ad9117e.mp3',
+        Vu = 'style_cross_button__2OCca',
+        Uu = (e) => {
+          let { fontSize: t = '24px', width: n = 24, height: r = 24, onClick: o } = e;
+          return (0, gu.jsx)('button', {
+            className: Vu,
+            style: { fontSize: t, width: n, height: r },
+            onClick: o,
+            children: '\u2715',
+          });
         },
-        Cu = {
+        Iu = {
           icon_button: 'style_icon_button__sSp5a',
           green: 'style_green__sHJi6',
           icon: 'style_icon__ndPpH',
         };
-      var xu;
-      function Nu() {
+      var Fu;
+      function Bu() {
         return (
-          (Nu = Object.assign
+          (Bu = Object.assign
             ? Object.assign.bind()
             : function (e) {
                 for (var t = 1; t < arguments.length; t++) {
@@ -13692,14 +13709,14 @@
                 }
                 return e;
               }),
-          Nu.apply(this, arguments)
+          Bu.apply(this, arguments)
         );
       }
-      function Lu(e, n) {
+      function ju(e, n) {
         let { title: r, titleId: o, ...a } = e;
         return t.createElement(
           'svg',
-          Nu(
+          Bu(
             {
               id: '_x32_',
               xmlns: 'http://www.w3.org/2000/svg',
@@ -13715,8 +13732,8 @@
             a
           ),
           r ? t.createElement('title', { id: o }, r) : null,
-          xu ||
-            (xu = t.createElement(
+          Fu ||
+            (Fu = t.createElement(
               'g',
               null,
               t.createElement('path', {
@@ -13738,62 +13755,77 @@
             ))
         );
       }
-      const Au = t.forwardRef(Lu),
-        Pu =
+      const Wu = t.forwardRef(ju),
+        Hu =
           (n.p,
           (e) => {
             let { icon: n, backgroundColor: r, diameter: o = 80, onClick: a } = e;
-            const l = (0, t.useMemo)(() => Au, [n]);
+            const l = (0, t.useMemo)(() => Wu, [n]);
             return (0, gu.jsx)('button', {
-              className: ''.concat(Cu.icon_button, ' ').concat(Cu[r]),
+              className: ''.concat(Iu.icon_button, ' ').concat(Iu[r]),
               style: { width: o, height: o },
               onClick: () => {
                 a && a();
               },
-              children: (0, gu.jsx)(l, { className: Cu.icon }),
+              children: (0, gu.jsx)(l, { className: Iu.icon }),
             });
           }),
-        Mu = 'style_number_button__MpVg-',
-        Ou = (e) => {
-          let { char: t, diameter: n = 80, fontSize: r = 32, onClick: o } = e;
+        $u = 'style_number_button__MpVg-',
+        Ku = (e) => {
+          let { char: t, diameter: n = 80, fontSize: r = 32, onClick: o, sound: a } = e;
+          const l = new Audio(a);
           return (0, gu.jsx)('button', {
-            className: Mu,
+            className: $u,
             style: { width: n, height: n, fontSize: r },
             onClick: () => {
-              o && o(t);
+              o && (l.play(), o(t));
             },
             children: t,
           });
         },
-        zu = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '\uff0a', '0', '\uff03'],
-        Du = (e) => {
+        Qu = [
+          { char: '1', sound: Ru },
+          { char: '2', sound: Cu },
+          { char: '3', sound: xu },
+          { char: '4', sound: Nu },
+          { char: '5', sound: Lu },
+          { char: '6', sound: Au },
+          { char: '7', sound: Pu },
+          { char: '8', sound: Mu },
+          { char: '9', sound: Ou },
+          { char: '\uff0a', sound: zu },
+          { char: '0', sound: Tu },
+          { char: '\uff03', sound: Du },
+        ],
+        qu = (e) => {
           let { onPushButton: t, onCall: n, onBackspace: r } = e;
           return (0, gu.jsxs)('div', {
             className: ku,
             children: [
-              zu.map((e) =>
-                (0, gu.jsx)(
+              Qu.map((e) => {
+                let { char: n, sound: r } = e;
+                return (0, gu.jsx)(
                   'div',
-                  { className: Eu, children: (0, gu.jsx)(Ou, { char: e, onClick: t }) },
-                  e
-                )
-              ),
+                  { className: Eu, children: (0, gu.jsx)(Ku, { char: n, onClick: t, sound: r }) },
+                  n
+                );
+              }),
               (0, gu.jsx)('div', { className: Eu }),
               (0, gu.jsx)('div', {
                 className: Eu,
-                children: (0, gu.jsx)(Pu, { icon: 'tel', backgroundColor: 'green', onClick: n }),
+                children: (0, gu.jsx)(Hu, { icon: 'tel', backgroundColor: 'green', onClick: n }),
               }),
-              (0, gu.jsx)('div', { className: Eu, children: (0, gu.jsx)(Ru, { onClick: r }) }),
+              (0, gu.jsx)('div', { className: Eu, children: (0, gu.jsx)(Uu, { onClick: r }) }),
             ],
           });
         },
-        Vu = () => {
+        Gu = () => {
           const [e, n] = (0, t.useState)('');
           return (0, gu.jsxs)('div', {
             className: wu,
             children: [
               (0, gu.jsx)('div', { className: _u, children: e }),
-              (0, gu.jsx)(Du, {
+              (0, gu.jsx)(qu, {
                 onPushButton: (e) => n((t) => t + e),
                 onCall: () => {},
                 onBackspace: () => n((e) => e.slice(0, -1)),
@@ -13801,14 +13833,14 @@
             ],
           });
         },
-        Uu = () => (0, gu.jsx)('div', { children: (0, gu.jsx)(Vu, {}) });
-      const Iu = function () {
+        Yu = () => (0, gu.jsx)('div', { children: (0, gu.jsx)(Gu, {}) });
+      const Zu = function () {
           return (0, gu.jsxs)('div', {
             className: vu,
             children: [
               (0, gu.jsxs)(ne, {
                 children: [
-                  (0, gu.jsx)(ee, { path: '/', element: (0, gu.jsx)(Uu, {}) }),
+                  (0, gu.jsx)(ee, { path: '/', element: (0, gu.jsx)(Yu, {}) }),
                   (0, gu.jsx)(ee, { path: '*', element: (0, gu.jsx)(Su, {}) }),
                 ],
               }),
@@ -13816,7 +13848,7 @@
             ],
           });
         },
-        Fu = (e) => {
+        Xu = (e) => {
           e &&
             e instanceof Function &&
             n
@@ -13833,10 +13865,10 @@
           (0, gu.jsx)(mu, {
             children: (0, gu.jsx)(ae, {
               basename: '/baby-toyphone',
-              children: (0, gu.jsx)(Iu, {}),
+              children: (0, gu.jsx)(Zu, {}),
             }),
           })
         ),
-        Fu();
+        Xu();
     })();
 })();
