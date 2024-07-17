@@ -6,21 +6,20 @@ import useSound from 'use-sound';
 import styles from './style.module.scss';
 
 import SoundRingback from '@/assets/sounds/telephone/ringback_tone.mp3';
-import SoundShutdown from '@/assets/sounds/telephone/shutdown.mp3';
 import { KeyPad } from '@/components/common/KeyPad/KeyPad';
 import { CallModal } from '@/components/telephone/CallModal/CallModal';
-import { NumberSounds } from '@/hooks/NumberSounds';
+import { useNumberSounds } from '@/hooks/useNumberSounds';
 import { sleep } from '@/logics/sleep/sleep';
 
 export const Telephone = React.memo(() => {
-  const numberSounds = NumberSounds();
+  const numberSounds = useNumberSounds();
 
   const [inputNumber, setInputNumber] = useState('');
   const [isCalling, setIsCalling] = useState(false);
   const [showNumber, setShowNumber] = useState('');
+  const [isRecording, setIsRecording] = useState(false);
 
   const [ringPlay, { stop: ringStop }] = useSound(SoundRingback);
-  const [shutdownPlay, { stop: shutdownStop }] = useSound(SoundShutdown);
 
   const addShowNumber = useCallback(
     (c: string) => {
@@ -36,10 +35,10 @@ export const Telephone = React.memo(() => {
   const onCancel = useCallback(() => {
     setInputNumber('');
     ringStop();
-    shutdownStop();
+    setIsRecording(false);
     setIsCalling(false);
     setShowNumber('');
-  }, [ringStop, shutdownStop]);
+  }, [ringStop]);
 
   const onCall = useCallback(async () => {
     setIsCalling(true);
@@ -53,12 +52,8 @@ export const Telephone = React.memo(() => {
     ringPlay();
     // 再生中の待機
     await sleep(9960);
-    // 電話を切る音を再生
-    shutdownPlay();
-    // 再生中の待機
-    await sleep(3790);
-    // 通話を切る処理
-    onCancel();
+    // 音声の録音を開始
+    setIsRecording(true);
   }, [inputNumber, onCancel]);
 
   return (
@@ -74,6 +69,7 @@ export const Telephone = React.memo(() => {
         isOpen={isCalling}
         onCancel={onCancel}
         showNumber={showNumber}
+        isRecording={isRecording}
       />
     </div>
   );

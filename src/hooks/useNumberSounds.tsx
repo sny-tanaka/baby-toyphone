@@ -28,7 +28,7 @@ const BUTTONS = [
   { char: '＃', sound: SoundSharp },
 ];
 
-export const NumberSounds = () => {
+export const useNumberSounds = () => {
   const numberSounds = BUTTONS.map(({ char, sound }) => {
     const [play, { stop, pause }] = useSound(sound, {
       interrupt: true,

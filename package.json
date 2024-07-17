@@ -17,6 +17,7 @@
     "react-router-dom": "^6.19.0",
     "react-scripts": "5.0.1",
     "recoil": "^0.7.7",
+    "recordrtc": "^5.6.2",
     "typescript": "^4.9.5",
     "use-sound": "^4.0.3",
     "web-vitals": "^2.1.4"
@@ -63,6 +64,7 @@
     "@storybook/react": "^7.5.3",
     "@storybook/react-webpack5": "^7.5.3",
     "@storybook/testing-library": "^0.2.2",
+    "@types/recordrtc": "^5.6.14",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "babel-plugin-named-exports-order": "^0.0.2",

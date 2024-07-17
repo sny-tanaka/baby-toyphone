@@ -5,7 +5,7 @@ import styles from './style.module.scss';
 import { CrossButton } from '@/components/common/CrossButton/CrossButton';
 import { IconButton } from '@/components/common/IconButton/IconButton';
 import { NumberButton } from '@/components/common/NumberButton/NumberButton';
-import { NumberSounds } from '@/hooks/NumberSounds';
+import { useNumberSounds } from '@/hooks/useNumberSounds';
 
 type Props = {
   onPushButton: (char: string) => void;
@@ -15,7 +15,7 @@ type Props = {
 };
 
 export const KeyPad = React.memo(({ onPushButton, onCall, onBackspace, callDisabled }: Props) => {
-  const numberSounds = NumberSounds();
+  const numberSounds = useNumberSounds();
 
   return (
     <div className={styles.key_pad}>
