@@ -9,11 +9,11 @@ import SoundRingback from '@/assets/sounds/telephone/ringback_tone.mp3';
 import SoundShutdown from '@/assets/sounds/telephone/shutdown.mp3';
 import { KeyPad } from '@/components/common/KeyPad/KeyPad';
 import { CallModal } from '@/components/telephone/CallModal/CallModal';
-import { NumberSounds } from '@/hooks/NumberSounds';
+import { useNumberSounds } from '@/hooks/useNumberSounds';
 import { sleep } from '@/logics/sleep/sleep';
 
 export const Telephone = React.memo(() => {
-  const numberSounds = NumberSounds();
+  const numberSounds = useNumberSounds();
 
   const [inputNumber, setInputNumber] = useState('');
   const [isCalling, setIsCalling] = useState(false);
