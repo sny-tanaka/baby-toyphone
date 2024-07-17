@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/baby-toyphone/static/css/main.65f69569.css",
-    "main.js": "/baby-toyphone/static/js/main.a5860f31.js",
+    "main.css": "/baby-toyphone/static/css/main.15bbcfc7.css",
+    "main.js": "/baby-toyphone/static/js/main.29153abf.js",
     "static/js/510.1e65ce32.chunk.js": "/baby-toyphone/static/js/510.1e65ce32.chunk.js",
     "static/js/27.b613a361.chunk.js": "/baby-toyphone/static/js/27.b613a361.chunk.js",
     "static/media/ringback_tone.mp3": "/baby-toyphone/static/media/ringback_tone.c65a89200e4f921f09e9.mp3",
@@ -23,7 +23,7 @@
     "index.html": "/baby-toyphone/index.html"
   },
   "entrypoints": [
-    "static/css/main.65f69569.css",
-    "static/js/main.a5860f31.js"
+    "static/css/main.15bbcfc7.css",
+    "static/js/main.29153abf.js"
   ]
 }
