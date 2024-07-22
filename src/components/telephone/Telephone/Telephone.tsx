@@ -56,11 +56,22 @@ export const Telephone = React.memo(() => {
     setIsRecording(true);
   }, [inputNumber, onCancel]);
 
+  const onPushButton = useCallback(
+    (c: string) => {
+      if (inputNumber.length >= 11) {
+        onCall();
+      } else {
+        setInputNumber((prev) => prev + c);
+      }
+    },
+    [onCall]
+  );
+
   return (
     <div className={styles.telephone}>
       <div className={styles.input}>{inputNumber}</div>
       <KeyPad
-        onPushButton={(c) => setInputNumber((prev) => prev + c)}
+        onPushButton={onPushButton}
         onCall={onCall}
         onBackspace={() => setInputNumber((prev) => prev.slice(0, -1))}
         callDisabled={inputNumber.length === 0}
