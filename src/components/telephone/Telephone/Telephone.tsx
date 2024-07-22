@@ -23,11 +23,13 @@ export const Telephone = React.memo(() => {
     (c: string) => {
       if (inputNumber.length >= 11) {
         onCall();
+        return false;
       } else {
         setInputNumber((prev) => prev + c);
+        return true;
       }
     },
-    [onCall]
+    [onCall, inputNumber]
   );
 
   return (

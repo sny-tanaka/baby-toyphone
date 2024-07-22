@@ -9,7 +9,7 @@ type Props = {
   soundPlay: PlayFunction;
   diameter?: number;
   fontSize?: number;
-  onClick?: (c: string) => void;
+  onClick?: (c: string) => boolean;
 };
 
 export const NumberButton = React.memo(
@@ -24,8 +24,10 @@ export const NumberButton = React.memo(
         }}
         onClick={() => {
           if (onClick) {
-            soundPlay();
-            onClick(char);
+            const canPlaySound = onClick(char);
+            if (canPlaySound) {
+              soundPlay();
+            }
           }
         }}
       >
