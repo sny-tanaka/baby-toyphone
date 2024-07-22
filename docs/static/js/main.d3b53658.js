@@ -1,4 +1,4 @@
-/*! For license information please see main.e5769206.js.LICENSE.txt */
+/*! For license information please see main.d3b53658.js.LICENSE.txt */
 (() => {
   'use strict';
   var e = {
@@ -16280,7 +16280,9 @@
             className: Uu,
             style: { width: r, height: r, fontSize: o },
             onClick: () => {
-              a && (n(), a(t));
+              if (a) {
+                a(t) && n();
+              }
             },
             children: t,
           });
@@ -16588,10 +16590,8 @@
               o(!0);
             }, []),
             l = (0, t.useCallback)(
-              (t) => {
-                e.length >= 11 ? i() : n((e) => e + t);
-              },
-              [i]
+              (t) => (e.length >= 11 ? (i(), !1) : (n((e) => e + t), !0)),
+              [i, e]
             );
           return (0, yu.jsxs)('div', {
             className: Ru,

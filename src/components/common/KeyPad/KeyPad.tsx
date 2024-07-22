@@ -8,7 +8,7 @@ import { NumberButton } from '@/components/common/NumberButton/NumberButton';
 import { useNumberSounds } from '@/hooks/useNumberSounds';
 
 type Props = {
-  onPushButton: (char: string) => void;
+  onPushButton: (char: string) => boolean;
   onCall: () => void;
   onBackspace: () => void;
   callDisabled?: boolean;
