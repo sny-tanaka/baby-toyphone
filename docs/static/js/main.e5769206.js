@@ -1,4 +1,4 @@
-/*! For license information please see main.29153abf.js.LICENSE.txt */
+/*! For license information please see main.e5769206.js.LICENSE.txt */
 (() => {
   'use strict';
   var e = {
@@ -16178,10 +16178,116 @@
               children: '\u304a\u3082\u3061\u3083\u306e\u3067\u3093\u308f',
             }),
           }),
-        _u = () => (0, yu.jsx)('div', { children: (0, yu.jsx)('h1', { children: 'Not Found' }) });
-      function Ru() {
+        _u = () => (0, yu.jsx)('div', { children: (0, yu.jsx)('h1', { children: 'Not Found' }) }),
+        Ru = 'style_telephone__GegWU',
+        Eu = 'style_input__P4g0x',
+        Tu = 'style_key_pad__kvGl-',
+        Cu = 'style_button__gyIOf',
+        xu = 'style_cross_button__2OCca',
+        Lu = t.memo((e) => {
+          let { fontSize: t = '24px', width: n = 24, height: r = 24, onClick: o } = e;
+          return (0, yu.jsx)('button', {
+            className: xu,
+            style: { fontSize: t, width: n, height: r },
+            onClick: o,
+            children: '\u2715',
+          });
+        }),
+        Nu = {
+          icon_button: 'style_icon_button__sSp5a',
+          icon: 'style_icon__ndPpH',
+          green: 'style_green__sHJi6',
+          red: 'style_red__y9y6K',
+        };
+      var Au;
+      function Mu() {
         return (
-          (Ru = Object.assign
+          (Mu = Object.assign
+            ? Object.assign.bind()
+            : function (e) {
+                for (var t = 1; t < arguments.length; t++) {
+                  var n = arguments[t];
+                  for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
+                }
+                return e;
+              }),
+          Mu.apply(this, arguments)
+        );
+      }
+      function Pu(e, n) {
+        let { title: r, titleId: o, ...a } = e;
+        return t.createElement(
+          'svg',
+          Mu(
+            {
+              id: '_x32_',
+              xmlns: 'http://www.w3.org/2000/svg',
+              xmlnsXlink: 'http://www.w3.org/1999/xlink',
+              x: '0px',
+              y: '0px',
+              viewBox: '0 0 512 512',
+              style: { width: 256, height: 256, opacity: 1 },
+              xmlSpace: 'preserve',
+              ref: n,
+              'aria-labelledby': o,
+            },
+            a
+          ),
+          r ? t.createElement('title', { id: o }, r) : null,
+          Au ||
+            (Au = t.createElement(
+              'g',
+              null,
+              t.createElement('path', {
+                className: 'st0',
+                d: 'M316.212,349.305c-5.985-5.976-15.52-6.48-22.099-1.177l-31.14,25.109c-6.165,4.979-14.999,4.88-21.065-0.234 c0,0-26.548-17.866-55.8-47.118c-29.252-29.235-47.127-55.809-47.127-55.809c-5.105-6.057-5.203-14.891-0.225-21.056l25.1-31.14 c5.312-6.587,4.808-16.113-1.177-22.098l-59.619-59.619c-6.076-6.057-15.772-6.489-22.369-0.971l-74.78,62.81 c-6.003,5.05-7.656,13.579-3.936,20.498c0,0,10.048,20.526,19.394,36.235c25.658,43.173,67.366,94.228,104.509,131.38 c37.16,37.142,88.188,78.859,131.387,104.517c15.709,9.329,36.226,19.403,36.226,19.403c6.902,3.685,15.458,2.04,20.49-3.962 l62.818-74.78c5.518-6.579,5.086-16.285-0.971-22.36L316.212,349.305z',
+              }),
+              t.createElement('path', {
+                className: 'st0',
+                d: 'M330.906,269.349l24.821-3.936c-4.196-26.404-16.527-51.881-36.909-72.255 c-20.346-20.346-45.815-32.676-72.236-36.891l-3.945,24.813c21.398,3.451,41.896,13.336,58.414,29.855 C317.578,227.452,327.481,247.96,330.906,269.349z',
+              }),
+              t.createElement('path', {
+                className: 'st0',
+                d: 'M430.731,81.272c-44.98-44.97-101.138-72.057-159.472-81.26l-3.9,24.822 c53.318,8.43,104.454,33.09,145.587,74.214c41.124,41.124,65.775,92.295,74.214,145.596l24.84-3.918 C502.779,182.383,475.693,126.242,430.731,81.272z',
+              }),
+              t.createElement('path', {
+                className: 'st0',
+                d: 'M258.911,78.054l-3.9,24.849c37.394,5.887,73.26,23.132,102.1,51.971 c28.848,28.847,46.112,64.696,51.98,102.109l24.83-3.918c-6.642-42.409-26.322-83.264-59.017-115.958 C342.192,104.404,301.329,84.732,258.911,78.054z',
+              })
+            ))
+        );
+      }
+      const Du = t.forwardRef(Pu),
+        Ou =
+          (n.p,
+          t.memo((e) => {
+            let { icon: n, backgroundColor: r, diameter: o = 80, onClick: a, disabled: i } = e;
+            const l = (0, t.useMemo)(() => Du, [n]);
+            return (0, yu.jsx)('button', {
+              className: ''.concat(Nu.icon_button, ' ').concat(Nu[r]),
+              style: { width: o, height: o },
+              onClick: () => {
+                a && a();
+              },
+              disabled: i,
+              children: (0, yu.jsx)(l, { className: Nu.icon }),
+            });
+          })),
+        Uu = 'style_number_button__MpVg-',
+        Iu = t.memo((e) => {
+          let { char: t, soundPlay: n, diameter: r = 80, fontSize: o = 32, onClick: a } = e;
+          return (0, yu.jsx)('button', {
+            className: Uu,
+            style: { width: r, height: r, fontSize: o },
+            onClick: () => {
+              a && (n(), a(t));
+            },
+            children: t,
+          });
+        });
+      function zu() {
+        return (
+          (zu = Object.assign
             ? Object.assign.bind()
             : function (e) {
                 for (var t = 1; t < arguments.length; t++) {
@@ -16190,11 +16296,11 @@
                 }
                 return e;
               }),
-          Ru.apply(null, arguments)
+          zu.apply(null, arguments)
         );
       }
-      var Eu = ['id', 'volume', 'playbackRate', 'soundEnabled', 'interrupt', 'onload'];
-      const Tu = function (e, r) {
+      var Bu = ['id', 'volume', 'playbackRate', 'soundEnabled', 'interrupt', 'onload'];
+      const Vu = function (e, r) {
           var o,
             a = void 0 === r ? {} : r,
             i = a.volume,
@@ -16215,7 +16321,7 @@
                   n[r] = e[r];
                 }
               return n;
-            })(a, Eu),
+            })(a, Bu),
             v = t.useRef(null),
             g = t.useRef(!1),
             y = t.useState(null),
@@ -16240,7 +16346,7 @@
                     ((v.current = null !== (n = t.Howl) && void 0 !== n ? n : t.default.Howl),
                     (g.current = !0),
                     new v.current(
-                      Ru({ src: Array.isArray(e) ? e : [e], volume: l, rate: s, onload: R }, m)
+                      zu({ src: Array.isArray(e) ? e : [e], volume: l, rate: s, onload: R }, m)
                     ));
                 }),
               function () {
@@ -16254,7 +16360,7 @@
                 v.current &&
                   k &&
                   _(
-                    new v.current(Ru({ src: Array.isArray(e) ? e : [e], volume: l, onload: R }, m))
+                    new v.current(zu({ src: Array.isArray(e) ? e : [e], volume: l, onload: R }, m))
                   );
               },
               [JSON.stringify(e)]
@@ -16288,115 +16394,8 @@
             );
           return [E, { sound: k, stop: T, pause: C, duration: b }];
         },
-        Cu = 'style_telephone__GegWU',
-        xu = 'style_input__P4g0x',
-        Lu = n.p + 'static/media/ringback_tone.c65a89200e4f921f09e9.mp3',
-        Nu = 'style_key_pad__kvGl-',
-        Au = 'style_button__gyIOf',
-        Mu = 'style_cross_button__2OCca',
-        Pu = t.memo((e) => {
-          let { fontSize: t = '24px', width: n = 24, height: r = 24, onClick: o } = e;
-          return (0, yu.jsx)('button', {
-            className: Mu,
-            style: { fontSize: t, width: n, height: r },
-            onClick: o,
-            children: '\u2715',
-          });
-        }),
-        Du = {
-          icon_button: 'style_icon_button__sSp5a',
-          icon: 'style_icon__ndPpH',
-          green: 'style_green__sHJi6',
-          red: 'style_red__y9y6K',
-        };
-      var Ou;
-      function Uu() {
-        return (
-          (Uu = Object.assign
-            ? Object.assign.bind()
-            : function (e) {
-                for (var t = 1; t < arguments.length; t++) {
-                  var n = arguments[t];
-                  for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
-                }
-                return e;
-              }),
-          Uu.apply(this, arguments)
-        );
-      }
-      function Iu(e, n) {
-        let { title: r, titleId: o, ...a } = e;
-        return t.createElement(
-          'svg',
-          Uu(
-            {
-              id: '_x32_',
-              xmlns: 'http://www.w3.org/2000/svg',
-              xmlnsXlink: 'http://www.w3.org/1999/xlink',
-              x: '0px',
-              y: '0px',
-              viewBox: '0 0 512 512',
-              style: { width: 256, height: 256, opacity: 1 },
-              xmlSpace: 'preserve',
-              ref: n,
-              'aria-labelledby': o,
-            },
-            a
-          ),
-          r ? t.createElement('title', { id: o }, r) : null,
-          Ou ||
-            (Ou = t.createElement(
-              'g',
-              null,
-              t.createElement('path', {
-                className: 'st0',
-                d: 'M316.212,349.305c-5.985-5.976-15.52-6.48-22.099-1.177l-31.14,25.109c-6.165,4.979-14.999,4.88-21.065-0.234 c0,0-26.548-17.866-55.8-47.118c-29.252-29.235-47.127-55.809-47.127-55.809c-5.105-6.057-5.203-14.891-0.225-21.056l25.1-31.14 c5.312-6.587,4.808-16.113-1.177-22.098l-59.619-59.619c-6.076-6.057-15.772-6.489-22.369-0.971l-74.78,62.81 c-6.003,5.05-7.656,13.579-3.936,20.498c0,0,10.048,20.526,19.394,36.235c25.658,43.173,67.366,94.228,104.509,131.38 c37.16,37.142,88.188,78.859,131.387,104.517c15.709,9.329,36.226,19.403,36.226,19.403c6.902,3.685,15.458,2.04,20.49-3.962 l62.818-74.78c5.518-6.579,5.086-16.285-0.971-22.36L316.212,349.305z',
-              }),
-              t.createElement('path', {
-                className: 'st0',
-                d: 'M330.906,269.349l24.821-3.936c-4.196-26.404-16.527-51.881-36.909-72.255 c-20.346-20.346-45.815-32.676-72.236-36.891l-3.945,24.813c21.398,3.451,41.896,13.336,58.414,29.855 C317.578,227.452,327.481,247.96,330.906,269.349z',
-              }),
-              t.createElement('path', {
-                className: 'st0',
-                d: 'M430.731,81.272c-44.98-44.97-101.138-72.057-159.472-81.26l-3.9,24.822 c53.318,8.43,104.454,33.09,145.587,74.214c41.124,41.124,65.775,92.295,74.214,145.596l24.84-3.918 C502.779,182.383,475.693,126.242,430.731,81.272z',
-              }),
-              t.createElement('path', {
-                className: 'st0',
-                d: 'M258.911,78.054l-3.9,24.849c37.394,5.887,73.26,23.132,102.1,51.971 c28.848,28.847,46.112,64.696,51.98,102.109l24.83-3.918c-6.642-42.409-26.322-83.264-59.017-115.958 C342.192,104.404,301.329,84.732,258.911,78.054z',
-              })
-            ))
-        );
-      }
-      const zu = t.forwardRef(Iu),
-        Bu =
-          (n.p,
-          t.memo((e) => {
-            let { icon: n, backgroundColor: r, diameter: o = 80, onClick: a, disabled: i } = e;
-            const l = (0, t.useMemo)(() => zu, [n]);
-            return (0, yu.jsx)('button', {
-              className: ''.concat(Du.icon_button, ' ').concat(Du[r]),
-              style: { width: o, height: o },
-              onClick: () => {
-                a && a();
-              },
-              disabled: i,
-              children: (0, yu.jsx)(l, { className: Du.icon }),
-            });
-          })),
-        Vu = 'style_number_button__MpVg-',
-        Fu = t.memo((e) => {
-          let { char: t, soundPlay: n, diameter: r = 80, fontSize: o = 32, onClick: a } = e;
-          return (0, yu.jsx)('button', {
-            className: Vu,
-            style: { width: r, height: r, fontSize: o },
-            onClick: () => {
-              a && (n(), a(t));
-            },
-            children: t,
-          });
-        }),
-        ju = n.p + 'static/media/0.80ef7021810a7afc2319.mp3',
-        Wu = [
+        Fu = n.p + 'static/media/0.80ef7021810a7afc2319.mp3',
+        ju = [
           { char: '1', sound: n.p + 'static/media/1.0cca3a767db87583d049.mp3' },
           { char: '2', sound: n.p + 'static/media/2.2c936ac64c1724122460.mp3' },
           { char: '3', sound: n.p + 'static/media/3.85df786f565b70b29c04.mp3' },
@@ -16407,50 +16406,51 @@
           { char: '8', sound: n.p + 'static/media/8.1eecba34990c95f94b7d.mp3' },
           { char: '9', sound: n.p + 'static/media/9.8717f0d4f9bf751a8599.mp3' },
           { char: '\uff0a', sound: n.p + 'static/media/asterisk.9e03442fd26b509bfb46.mp3' },
-          { char: '0', sound: ju },
+          { char: '0', sound: Fu },
           { char: '\uff03', sound: n.p + 'static/media/sharp.438a410b52695ad9117e.mp3' },
         ],
-        Hu = () =>
-          Wu.map((e) => {
+        Wu = () =>
+          ju.map((e) => {
             let { char: t, sound: n } = e;
-            const [r, { stop: o, pause: a }] = Tu(n, { interrupt: !0 });
+            const [r, { stop: o, pause: a }] = Vu(n, { interrupt: !0 });
             return { char: t, play: r, stop: o, pause: a };
           }),
-        $u = t.memo((e) => {
+        Hu = t.memo((e) => {
           let { onPushButton: t, onCall: n, onBackspace: r, callDisabled: o } = e;
-          const a = Hu();
+          const a = Wu();
           return (0, yu.jsxs)('div', {
-            className: Nu,
+            className: Tu,
             children: [
               a.map((e) => {
                 let { char: n, play: r } = e;
                 return (0, yu.jsx)(
                   'div',
                   {
-                    className: Au,
-                    children: (0, yu.jsx)(Fu, { char: n, soundPlay: r, onClick: t }),
+                    className: Cu,
+                    children: (0, yu.jsx)(Iu, { char: n, soundPlay: r, onClick: t }),
                   },
                   n
                 );
               }),
-              (0, yu.jsx)('div', { className: Au }),
+              (0, yu.jsx)('div', { className: Cu }),
               (0, yu.jsx)('div', {
-                className: Au,
-                children: (0, yu.jsx)(Bu, {
+                className: Cu,
+                children: (0, yu.jsx)(Ou, {
                   icon: 'tel',
                   backgroundColor: 'green',
                   onClick: n,
                   disabled: o,
                 }),
               }),
-              (0, yu.jsx)('div', { className: Au, children: (0, yu.jsx)(Pu, { onClick: r }) }),
+              (0, yu.jsx)('div', { className: Cu, children: (0, yu.jsx)(Lu, { onClick: r }) }),
             ],
           });
         }),
-        qu = 'style_call_modal__d4Ng3',
-        Gu = 'style_show_number__qvQF1',
-        Ku = 'style_show_recording__nP+uq',
-        Qu = n.p + 'static/media/push.61f99c69cd58fb63ad3a.mp3',
+        $u = 'style_call_modal__d4Ng3',
+        qu = 'style_show_number__qvQF1',
+        Gu = 'style_show_recording__nP+uq',
+        Ku = n.p + 'static/media/push.61f99c69cd58fb63ad3a.mp3',
+        Qu = n.p + 'static/media/ringback_tone.c65a89200e4f921f09e9.mp3',
         Yu = n.p + 'static/media/shutdown.b2210b12799269a4b08f.mp3',
         Zu = 'style_modal__FwQiV',
         Xu = t.memo((e) => {
@@ -16465,13 +16465,15 @@
         es = n.n(Ju);
       const ts = async (e) => await new Promise((t) => setTimeout(t, e)),
         ns = t.memo((e) => {
-          let { isOpen: n, onCancel: r, showNumber: o, isRecording: a } = e;
-          const [i] = Tu(Qu),
-            [l] = Tu(Yu),
+          let { onCancel: n, inputNumber: r } = e;
+          const o = Wu(),
+            [a] = Vu(Ku),
+            [i, { stop: l, duration: u }] = Vu(Qu),
+            [s, { stop: c }] = Vu(Yu),
             {
-              startRecording: u,
-              stopRecording: s,
-              playAudio: c,
+              startRecording: d,
+              stopRecording: f,
+              playAudio: p,
             } = (() => {
               const e = (0, t.useRef)(null),
                 n = (0, t.useRef)(null),
@@ -16506,51 +16508,69 @@
                 { startRecording: a, stopRecording: i, playAudio: l, isRecording: r }
               );
             })(),
-            [d, f] = t.useState(0),
-            [p, h] = t.useState(null);
+            [h, m] = (0, t.useState)(''),
+            [v, g] = (0, t.useState)(0),
+            [y, b] = (0, t.useState)(null),
+            [w, S] = (0, t.useState)(!1),
+            k = (0, t.useRef)(!1),
+            _ = (0, t.useCallback)(
+              (e) => {
+                m((t) => t + e);
+                const t = o.find((t) => t.char === e);
+                t && t.play();
+              },
+              [o]
+            );
           return (
             (0, t.useEffect)(() => {
-              if (a) {
-                f(0), u();
-                const e = setInterval(() => {
-                  f((e) => e + 1);
-                }, 1e3);
-                h(e);
-              }
-            }, [a]),
+              u &&
+                (async () => {
+                  for (let t = 0; t < r.length; t++) _(r[t]), await ts(300);
+                  i(), await ts(9960), S(!0), g(0), d();
+                  const e = setInterval(() => {
+                    g((e) => e + 1);
+                  }, 1e3);
+                  b(e);
+                })();
+            }, [u]),
+            (0, t.useEffect)(
+              () => () => {
+                y && clearInterval(y), l(), c();
+              },
+              []
+            ),
             (0, yu.jsx)(Xu, {
-              isOpen: n,
+              isOpen: !0,
               children: (0, yu.jsxs)('div', {
-                className: qu,
+                className: $u,
                 children: [
-                  (0, yu.jsx)('div', { className: Gu, children: o }),
+                  (0, yu.jsx)('div', { className: qu, children: h }),
                   (0, yu.jsx)('div', {
-                    className: Ku,
+                    className: Gu,
                     children:
-                      a &&
+                      w &&
                       (0, yu.jsx)('div', {
                         children: ''
                           .concat(
-                            Math.floor(d / 60)
+                            Math.floor(v / 60)
                               .toString()
                               .padStart(2, '0'),
                             ':'
                           )
-                          .concat((d % 60).toString().padStart(2, '0')),
+                          .concat((v % 60).toString().padStart(2, '0')),
                       }),
                   }),
-                  (0, yu.jsx)(Bu, {
+                  (0, yu.jsx)(Ou, {
                     icon: 'tel',
                     backgroundColor: 'red',
                     onClick: async () => {
-                      i(),
-                        p && clearInterval(p),
-                        await s(),
-                        c(),
-                        await ts(1e3 * d),
-                        l(),
-                        await ts(3790),
-                        r();
+                      if (!w || k.current) return l(), (k.current = !1), a(), void n();
+                      (k.current = !0),
+                        a(),
+                        y && clearInterval(y),
+                        await f(),
+                        k.current &&
+                          (p(), await ts(1e3 * v), k.current && (s(), await ts(3790), n()));
                     },
                   }),
                 ],
@@ -16559,39 +16579,31 @@
           );
         }),
         rs = t.memo(() => {
-          const e = Hu(),
-            [n, r] = (0, t.useState)(''),
-            [o, a] = (0, t.useState)(!1),
-            [i, l] = (0, t.useState)(''),
-            [u, s] = (0, t.useState)(!1),
-            [c, { stop: d }] = Tu(Lu),
-            f = (0, t.useCallback)(
+          const [e, n] = (0, t.useState)(''),
+            [r, o] = (0, t.useState)(!1),
+            a = (0, t.useCallback)(() => {
+              n(''), o(!1);
+            }, []),
+            i = (0, t.useCallback)(async () => {
+              o(!0);
+            }, []),
+            l = (0, t.useCallback)(
               (t) => {
-                l((e) => e + t);
-                const n = e.find((e) => e.char === t);
-                n && n.play();
+                e.length >= 11 ? i() : n((e) => e + t);
               },
-              [e]
-            ),
-            p = (0, t.useCallback)(() => {
-              r(''), d(), s(!1), a(!1), l('');
-            }, [d]),
-            h = (0, t.useCallback)(async () => {
-              a(!0);
-              for (let e = 0; e < n.length; e++) f(n[e]), await ts(300);
-              c(), await ts(9960), s(!0);
-            }, [n, p]);
+              [i]
+            );
           return (0, yu.jsxs)('div', {
-            className: Cu,
+            className: Ru,
             children: [
-              (0, yu.jsx)('div', { className: xu, children: n }),
-              (0, yu.jsx)($u, {
-                onPushButton: (e) => r((t) => t + e),
-                onCall: h,
-                onBackspace: () => r((e) => e.slice(0, -1)),
-                callDisabled: 0 === n.length,
+              (0, yu.jsx)('div', { className: Eu, children: e }),
+              (0, yu.jsx)(Hu, {
+                onPushButton: l,
+                onCall: i,
+                onBackspace: () => n((e) => e.slice(0, -1)),
+                callDisabled: 0 === e.length,
               }),
-              (0, yu.jsx)(ns, { isOpen: o, onCancel: p, showNumber: i, isRecording: u }),
+              r && (0, yu.jsx)(ns, { onCancel: a, inputNumber: e }),
             ],
           });
         }),
