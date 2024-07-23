@@ -89,8 +89,8 @@ export const CallModal = React.memo(({ onCancel, inputNumber }: Props) => {
           <div>
             <Webcam
               audio={false}
-              width={216}
-              height={384}
+              width="100%"
+              height={400}
               videoConstraints={{
                 facingMode: 'user',
                 width: 1080,

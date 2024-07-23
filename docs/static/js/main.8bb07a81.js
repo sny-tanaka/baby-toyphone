@@ -1,4 +1,4 @@
-/*! For license information please see main.d974059d.js.LICENSE.txt */
+/*! For license information please see main.8bb07a81.js.LICENSE.txt */
 (() => {
   var e = {
       534: (e, t, n) => {
@@ -17009,8 +17009,8 @@
                     (0, yu.jsx)('div', {
                       children: (0, yu.jsx)(Yu(), {
                         audio: !1,
-                        width: 216,
-                        height: 384,
+                        width: '100%',
+                        height: 400,
                         videoConstraints: { facingMode: 'user', width: 1080, height: 1920 },
                       }),
                     }),
