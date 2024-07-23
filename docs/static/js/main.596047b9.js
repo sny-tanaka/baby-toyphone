@@ -1,4 +1,4 @@
-/*! For license information please see main.8bb07a81.js.LICENSE.txt */
+/*! For license information please see main.596047b9.js.LICENSE.txt */
 (() => {
   var e = {
       534: (e, t, n) => {
@@ -16933,17 +16933,19 @@
               startRecording: d,
               stopRecording: f,
               playAudio: p,
+              stopAudio: h,
             } = (() => {
               const e = (0, t.useRef)(null),
                 n = (0, t.useRef)(null),
                 [r, o] = (0, t.useState)(!1),
-                a = (0, t.useCallback)(async () => {
+                [a, i] = (0, t.useState)(null),
+                l = (0, t.useCallback)(async () => {
                   if (r) return;
                   const t = await navigator.mediaDevices.getUserMedia({ audio: !0 }),
                     n = new (ls())(t, { type: 'audio' });
                   n.startRecording(), (e.current = n), o(!0);
                 }, [e, r]),
-                i = (0, t.useCallback)(async () => {
+                u = (0, t.useCallback)(async () => {
                   if (e.current) {
                     const t = await new Promise((t) => {
                       e.current.stopRecording(() => {
@@ -16954,9 +16956,15 @@
                     e.current.destroy(), (e.current = null), (n.current = t), o(!1);
                   }
                 }, [e, n]),
-                l = (0, t.useCallback)(() => {
-                  n.current && new Audio(URL.createObjectURL(n.current)).play();
-                }, [n]);
+                s = (0, t.useCallback)(() => {
+                  if (n.current) {
+                    const e = new Audio(URL.createObjectURL(n.current));
+                    i(e), e.play();
+                  }
+                }, [n]),
+                c = (0, t.useCallback)(() => {
+                  a && a.pause();
+                }, [a]);
               return (
                 (0, t.useEffect)(
                   () => () => {
@@ -16964,18 +16972,18 @@
                   },
                   [e]
                 ),
-                { startRecording: a, stopRecording: i, playAudio: l, isRecording: r }
+                { startRecording: l, stopRecording: u, playAudio: s, stopAudio: c, isRecording: r }
               );
             })(),
-            [h, m] = (0, t.useState)(''),
-            [v, g] = (0, t.useState)(0),
-            [y, b] = (0, t.useState)(null),
-            [w, S] = (0, t.useState)(!1),
-            [k, _] = (0, t.useState)(!1),
-            R = (0, t.useRef)(!1),
-            E = (0, t.useCallback)(
+            [m, v] = (0, t.useState)(''),
+            [g, y] = (0, t.useState)(0),
+            [b, w] = (0, t.useState)(null),
+            [S, k] = (0, t.useState)(!1),
+            [_, R] = (0, t.useState)(!1),
+            E = (0, t.useRef)(!1),
+            T = (0, t.useCallback)(
               (e) => {
-                m((t) => t + e);
+                v((t) => t + e);
                 const t = o.find((t) => t.char === e);
                 t && t.play();
               },
@@ -16985,17 +16993,17 @@
             (0, t.useEffect)(() => {
               u &&
                 (async () => {
-                  for (let t = 0; t < r.length; t++) E(r[t]), await us(300);
-                  i(), await us(9960), S(!0), g(0), d();
+                  for (let t = 0; t < r.length; t++) T(r[t]), await us(300);
+                  i(), await us(9960), k(!0), y(0), d();
                   const e = setInterval(() => {
-                    g((e) => e + 1);
+                    y((e) => e + 1);
                   }, 1e3);
-                  b(e);
+                  w(e);
                 })();
             }, [u]),
             (0, t.useEffect)(
               () => () => {
-                y && clearInterval(y), l(), c();
+                b && clearInterval(b), l(), c();
               },
               []
             ),
@@ -17004,29 +17012,29 @@
               children: (0, yu.jsxs)('div', {
                 className: Xu,
                 children: [
-                  (0, yu.jsx)('div', { className: Zu, children: h }),
-                  k &&
+                  (0, yu.jsx)('div', { className: Zu, children: m }),
+                  _ &&
                     (0, yu.jsx)('div', {
                       children: (0, yu.jsx)(Yu(), {
                         audio: !1,
                         width: '100%',
                         height: 400,
-                        videoConstraints: { facingMode: 'user', width: 1080, height: 1920 },
+                        videoConstraints: { facingMode: 'user', width: 1920, height: 1080 },
                       }),
                     }),
                   (0, yu.jsx)('div', {
                     className: Ju,
                     children:
-                      w &&
+                      S &&
                       (0, yu.jsx)('div', {
                         children: ''
                           .concat(
-                            Math.floor(v / 60)
+                            Math.floor(g / 60)
                               .toString()
                               .padStart(2, '0'),
                             ':'
                           )
-                          .concat((v % 60).toString().padStart(2, '0')),
+                          .concat((g % 60).toString().padStart(2, '0')),
                       }),
                   }),
                   (0, yu.jsxs)('div', {
@@ -17034,20 +17042,21 @@
                     children: [
                       (0, yu.jsx)(Bu, {
                         icon: 'camera',
-                        backgroundColor: k ? 'red' : 'green',
-                        onClick: () => _((e) => !e),
+                        backgroundColor: _ ? 'red' : 'green',
+                        onClick: () => R((e) => !e),
                       }),
                       (0, yu.jsx)(Bu, {
                         icon: 'tel',
                         backgroundColor: 'red',
                         onClick: async () => {
-                          if (!w || R.current) return l(), (R.current = !1), a(), void n();
-                          (R.current = !0),
+                          if (!S || E.current)
+                            return l(), h(), c(), (E.current = !1), a(), void n();
+                          (E.current = !0),
                             a(),
-                            y && clearInterval(y),
+                            b && clearInterval(b),
                             await f(),
-                            R.current &&
-                              (p(), await us(1e3 * v), R.current && (s(), await us(3790), n()));
+                            E.current &&
+                              (p(), await us(1e3 * g), E.current && (s(), await us(3790), n()));
                         },
                       }),
                     ],
