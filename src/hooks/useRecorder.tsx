@@ -6,6 +6,7 @@ export const useRecorder = () => {
   const recorderRef = useRef<RecordRTC | null>(null);
   const audioBlobRef = useRef<Blob | null>(null);
   const [isRecording, setIsRecording] = useState(false);
+  const [recordedAudio, setRecordedAudio] = useState<HTMLAudioElement | null>(null);
 
   const startRecording = useCallback(async () => {
     if (isRecording) {
@@ -37,9 +38,16 @@ export const useRecorder = () => {
   const playAudio = useCallback(() => {
     if (audioBlobRef.current) {
       const audio = new Audio(URL.createObjectURL(audioBlobRef.current));
+      setRecordedAudio(audio);
       audio.play();
     }
   }, [audioBlobRef]);
+
+  const stopAudio = useCallback(() => {
+    if (recordedAudio) {
+      recordedAudio.pause();
+    }
+  }, [recordedAudio]);
 
   useEffect(() => {
     // アンマウント時にリソースを解放
@@ -50,5 +58,5 @@ export const useRecorder = () => {
     };
   }, [recorderRef]);
 
-  return { startRecording, stopRecording, playAudio, isRecording };
+  return { startRecording, stopRecording, playAudio, stopAudio, isRecording };
 };

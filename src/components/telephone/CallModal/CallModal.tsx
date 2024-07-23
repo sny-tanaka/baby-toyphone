@@ -24,7 +24,7 @@ export const CallModal = React.memo(({ onCancel, inputNumber }: Props) => {
   const [pushPlay] = useSound(SoundPush);
   const [ringPlay, { stop: ringStop, duration: ringDuration }] = useSound(SoundRingback);
   const [shutdownPlay, { stop: shutdownStop }] = useSound(SoundShutdown);
-  const { startRecording, stopRecording, playAudio } = useRecorder();
+  const { startRecording, stopRecording, playAudio, stopAudio } = useRecorder();
 
   const [showNumber, setShowNumber] = useState('');
   const [recordingTime, setRecordingTime] = useState(0);
@@ -118,6 +118,8 @@ export const CallModal = React.memo(({ onCancel, inputNumber }: Props) => {
             onClick={async () => {
               if (!isRecording || isAlreadyCanceledRef.current) {
                 ringStop();
+                stopAudio();
+                shutdownStop();
                 isAlreadyCanceledRef.current = false;
                 pushPlay();
                 onCancel();
