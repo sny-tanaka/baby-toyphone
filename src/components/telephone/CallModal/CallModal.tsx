@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import Webcam from 'react-webcam';
 
 import useSound from 'use-sound';
-import Webcam from 'react-webcam';
 
 import styles from './style.module.scss';
 
