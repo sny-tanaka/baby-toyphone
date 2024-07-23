@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import Webcam from 'react-webcam';
 
 import useSound from 'use-sound';
 
@@ -29,6 +30,7 @@ export const CallModal = React.memo(({ onCancel, inputNumber }: Props) => {
   const [recordingTime, setRecordingTime] = useState(0);
   const [recordingIntervalId, setRecordingIntervalId] = useState<NodeJS.Timeout | null>(null);
   const [isRecording, setIsRecording] = useState(false);
+  const [showCamera, setShowCamera] = useState(false);
   const isAlreadyCanceledRef = useRef(false);
 
   const addShowNumber = useCallback(
@@ -83,6 +85,20 @@ export const CallModal = React.memo(({ onCancel, inputNumber }: Props) => {
     <Modal isOpen={true}>
       <div className={styles.call_modal}>
         <div className={styles.show_number}>{showNumber}</div>
+        {showCamera && (
+          <div>
+            <Webcam
+              audio={false}
+              width={216}
+              height={384}
+              videoConstraints={{
+                facingMode: 'user',
+                width: 1080,
+                height: 1920,
+              }}
+            />
+          </div>
+        )}
         <div className={styles.show_recording}>
           {isRecording && (
             <div>{`${Math.floor(recordingTime / 60)
@@ -90,35 +106,42 @@ export const CallModal = React.memo(({ onCancel, inputNumber }: Props) => {
               .padStart(2, '0')}:${(recordingTime % 60).toString().padStart(2, '0')}`}</div>
           )}
         </div>
-        <IconButton
-          icon="tel"
-          backgroundColor="red"
-          onClick={async () => {
-            if (!isRecording || isAlreadyCanceledRef.current) {
-              ringStop();
-              isAlreadyCanceledRef.current = false;
-              pushPlay();
-              onCancel();
-              return;
-            }
-            isAlreadyCanceledRef.current = true;
-            pushPlay();
-            if (recordingIntervalId) {
-              clearInterval(recordingIntervalId);
-            }
-            await stopRecording();
-            if (isAlreadyCanceledRef.current) {
-              playAudio();
-              await sleep(recordingTime * 1000);
-              if (isAlreadyCanceledRef.current) {
-                // 電話を切る音を再生
-                shutdownPlay();
-                await sleep(3790);
+        <div className={styles.buttons}>
+          <IconButton
+            icon="camera"
+            backgroundColor={showCamera ? 'red' : 'green'}
+            onClick={() => setShowCamera((prev) => !prev)}
+          />
+          <IconButton
+            icon="tel"
+            backgroundColor="red"
+            onClick={async () => {
+              if (!isRecording || isAlreadyCanceledRef.current) {
+                ringStop();
+                isAlreadyCanceledRef.current = false;
+                pushPlay();
                 onCancel();
+                return;
               }
-            }
-          }}
-        />
+              isAlreadyCanceledRef.current = true;
+              pushPlay();
+              if (recordingIntervalId) {
+                clearInterval(recordingIntervalId);
+              }
+              await stopRecording();
+              if (isAlreadyCanceledRef.current) {
+                playAudio();
+                await sleep(recordingTime * 1000);
+                if (isAlreadyCanceledRef.current) {
+                  // 電話を切る音を再生
+                  shutdownPlay();
+                  await sleep(3790);
+                  onCancel();
+                }
+              }
+            }}
+          />
+        </div>
       </div>
     </Modal>
   );

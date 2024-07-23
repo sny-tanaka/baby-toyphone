@@ -32,4 +32,13 @@
     height: 32px;
     font-size: 24px;
   }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
 }

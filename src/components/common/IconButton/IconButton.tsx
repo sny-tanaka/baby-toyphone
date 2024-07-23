@@ -3,10 +3,11 @@ import React from 'react';
 
 import styles from './style.module.scss';
 
+import { ReactComponent as CameraIcon } from '@/assets/images/icons/camera.svg';
 import { ReactComponent as TelIcon } from '@/assets/images/icons/tel.svg';
 
 type Props = {
-  icon: 'tel';
+  icon: 'tel' | 'camera';
   backgroundColor: 'green' | 'red';
   diameter?: number;
   onClick?: () => void;
@@ -19,6 +20,8 @@ export const IconButton = React.memo(
       switch (icon) {
         case 'tel':
           return TelIcon;
+        case 'camera':
+          return CameraIcon;
         default:
           return TelIcon;
       }
